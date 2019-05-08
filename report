@@ -1,0 +1,15 @@
+Shashi Kiran Ver:01
+Vehicle crash scenarios addressed by V2V
+As we know that V2V systems are built using transceivers communicating via radio signals, which are omnidirectional, communicating using these signals gives the extra added flexibility to the equipped vehicles to know about other vehicles at times when vehicles relying on their sensors are not able to detect the presence of another vehicle. Sending data about the vehicles heading, speed, bearing or its operational status via these signals allows the vehicles to have handshakes in the best possible way.
+V2V communication, when implemented using commercial transceiver modules, offers a communication range of about 300 metres between the vehicles, which allows the vehicles to identify and make a judgement regarding forthcoming intersection paths that may lead to fatal crashes, if driver action is not taken at the right time.
+There are many V2V safety applications, that can be efficiently implemented by using V2V alone, as discussed below:
+Left/Right turn assist:
+    This application warns the drivers, who are entering the intersection, not to take a turn in front of the vehicle entering the intersection.
+Intersection Motion assist
+    This assists the drivers and warns them when it’s not safe to enter the intersection when there is traffic entering the intersection. 
+Blind spot warning + Lane change warning
+    Since V2V overcomes the problem of blind spots, when compared with sensor based implementations, this application warns the driver about the lane change attempt made by the vehicle entering the host vehicle’s blind spot.
+Forward Collision warning
+    This application warns the driver about the impending rear-end collisions with the vehicles in the same lane moving in the same direction.    
+Emergency E-brake light
+    This applications warns the driver to apply brake when another vehicle comes in its path decelerating and moreover if this vehicle is not visible because of various reasons like bad weather conditions, vehicle obstructions etc. 
