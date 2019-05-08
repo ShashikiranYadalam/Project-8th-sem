@@ -36,7 +36,7 @@ I.	calcDistance- Distance calculation between the points given the latitude and 
 II.	calcpolyOffset- Calculates the polygonal offset Given a start point, initial bearing, and distance, this will calculate the destina¬tion point and final bearing travelling along a (shortest distance) great circle arc (appendix).
 III.	
 (d)	The Arduino application – v2vnrf.ino
-This is the Arduino program which 
+This is the Arduino program which sets up the radio module and GPS module and the SPI interfacing. 
 Appendix
 Distance calculation: This uses the ‘haversine’ formula to calculate the great-circle distance between two points – that is, the shortest distance over the earth’s surface – giving an ‘as-the-crow-flies’ distance between the points (ignoring any hills they fly over, of course!).
 Haversine
@@ -45,5 +45,12 @@ formula:	a = sin²(Δφ/2) + cos φ1 ⋅ cos φ2 ⋅ sin²(Δλ/2)
 	d = R ⋅ c
 where	φ is latitude, λ is longitude, R is earth’s radius (mean radius = 6,371km);
 note that angles need to be in radians to pass to trig functions!
+
+Destination point given distance and bearing from start point:
+Given a start point, initial bearing, and distance, this will calculate the destina¬tion point and final bearing travelling along a (shortest distance) great circle arc.
+Formula: 	φ2 = asin( sin φ1 ⋅ cos δ + cos φ1 ⋅ sin δ ⋅ cos θ )
+	λ2 = λ1 + atan2( sin θ ⋅ sin δ ⋅ cos φ1, cos δ − sin φ1 ⋅ sin φ2 )
+where	φ is latitude, λ is longitude, θ is the bearing (clockwise from north), δ is the angular distance d/R; d being the distance travelled, R the earth’s radius
+
 
  
