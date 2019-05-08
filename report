@@ -20,4 +20,30 @@ Shashi Kiran Ver:02
 METHODOLOGY
 The main task in this project is building an equipment which has the capability, i.e., has the peripherals attached to gather the gps data, control the sequence of processes required for warning, process this data and transit/receive this data. This equipment should be small, modular and inter-operable. So in this project, we have built this equipment using Arduino, as the microcontroller, Ublox neo GPS 6m module for collecting the gps data and nrf24L01 module as the transceiver to establish V2V communication. The processing node used (arduino), takes the GPS data from the Neo GPS 6m module, as GPSC structures. This GPS data is of the other vehicle. This data is then compared with its own GPS data and then a decision is made. The indications that we are providing the driver are regarding the proximity of other vehicle, whether the equipment is receiving BSM or not and power supply indication to the equipment.
 This is shown in the block diagram as shown below.
+
+ALGORITHM
+The Arduino application developed basically is integration and application of mathematical models on the real-time data received from the GPS module. The main components in the developed application are:
+(a)	Header file – v2vnrf.h
+This includes the global declarations of all the variables, constants, peripheral connections to the Arduino Uno board and the declaration of the functions implemented in the below mentioned files.
+(b)	Line intersection algorithm – linesv2v.cpp
+This involves the implementation of the algorithms for finding the
+I.	Orientation of an ordered triplet- This is achieved using the Cross Product algorithm (appendix).
+II.	onSegment- This function verifies whether a point lies on the segment formed by two other points (appendix).
+III.	doIntersect- This function returns true if two line segments intersect else returns false (appendix).
+(c)	Collision Warning algorithm – v2vapps.c
+This is the heart of the application, which involves
+I.	calcDistance- Distance calculation between the points given the latitude and longitude of these points using the Haversine formulae (appendix).
+II.	calcpolyOffset- Calculates the polygonal offset Given a start point, initial bearing, and distance, this will calculate the destina¬tion point and final bearing travelling along a (shortest distance) great circle arc (appendix).
+III.	
+(d)	The Arduino application – v2vnrf.ino
+This is the Arduino program which 
+Appendix
+Distance calculation: This uses the ‘haversine’ formula to calculate the great-circle distance between two points – that is, the shortest distance over the earth’s surface – giving an ‘as-the-crow-flies’ distance between the points (ignoring any hills they fly over, of course!).
+Haversine
+formula:	a = sin²(Δφ/2) + cos φ1 ⋅ cos φ2 ⋅ sin²(Δλ/2)
+	c = 2 ⋅ atan2( √a, √(1−a) )
+	d = R ⋅ c
+where	φ is latitude, λ is longitude, R is earth’s radius (mean radius = 6,371km);
+note that angles need to be in radians to pass to trig functions!
+
  
