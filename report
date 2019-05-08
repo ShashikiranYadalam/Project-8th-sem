@@ -13,3 +13,10 @@ Forward Collision warning
     This application warns the driver about the impending rear-end collisions with the vehicles in the same lane moving in the same direction.    
 Emergency E-brake light
     This applications warns the driver to apply brake when another vehicle comes in its path decelerating and moreover if this vehicle is not visible because of various reasons like bad weather conditions, vehicle obstructions etc. 
+
+
+
+Shashi Kiran Ver:02
+METHODOLOGY
+ The main task in this project is building an equipment which has the capability, i.e., has the peripherals attached to gather the gps data, control the sequence of processes, process the data and transit/receive this data. This equipment should be small, modular and inter-operable. So in this project, we have built this equipment using Arduino, as the microcontroller, Ublox neo GPS 6m module for collecting the gps data and nrf24L01 module as the tranceiver to establish V2V communication. The processing node used (arduino), takes the GPS data from the Neo GPS 6m module, as GPSC structures. This GPS data is of the other vehicle.This data is then compared with ts own GPS data and then a decision is made. 
+ 
